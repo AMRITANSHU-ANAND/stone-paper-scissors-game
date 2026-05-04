@@ -12,6 +12,14 @@ const getComputerChoice = () => {
 const draw =()=>{
     console.log("It,s a draw!");
 }
+showWinner =(userWins)=>{
+    if (userWins){
+        console.log("You win!");
+    }
+    else{
+        console.log("Computer wins!");
+    }
+};
 const playGame =(userChoice)=>{
     console.log("User chose:", userChoice);
     // generate computer choice
@@ -20,8 +28,21 @@ const playGame =(userChoice)=>{
     //draw condition
     if (userChoice === computerChoice){
         draw();
-    };
-
+    }
+    // win conditions
+    else{
+        let userWins = true;
+        if (userChoice === "rock"){
+            userWins = computerChoice === "paper"? false: true;
+        }
+        else if (userChoice ==="paper"){
+            userWins =computerChoice === "scissors"? false: true;
+        }
+        else if (userChoice === "scissors"){
+            userWins = computerChoice === "rock"? false: true;
+        }
+        showWinner(userWins);
+    }
 };
 
 choices.forEach((choice)=>{
