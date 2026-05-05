@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet"  href="./style.css">
+    <title>Stone Paper Scissors</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-      
-            <h1>Stone Paper Scissors</h1>   
-     <div class="choices">
-        <div class="choice" id="stone">
+
+    <h1>Stone Paper Scissors</h1>   
+
+    <div class="choices">
+        <div class="choice" id="rock">
             <img src="./image/stone.jpg" alt="rock">
         </div>
         <div class="choice" id="paper">
@@ -20,26 +21,25 @@
             <img src="./image/scissors.jpg" alt="scissors">
         </div>
     </div>
-     
 
-<div class="score-board">
+    <div class="score-board">
 
-    <div class="score">
-        <p id="user-score">0</p>
-        <p>you</p>
+        <div class="score">
+            <p id="user-score">0</p>
+            <p>you</p>
+        </div>
+
+        <div class="score">
+            <p id="comp-score">0</p>
+            <p>computer</p>
+        </div>
+
     </div>
 
-    <div class="score">
-        <p id="comp -score">0</p>
-        <p>computer</p>
+    <div class="message-container">
+        <p class="msg">play your move!</p>
     </div>
 
-</div>
-
-<div class="message-container">
-    <p id="msg">play your move!</p>
-</div>
-
-<script src="./script.js"></script> 
+    <script src="./script.js"></script> 
 </body>
 </html>

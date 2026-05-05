@@ -2,53 +2,57 @@ let user = 0;
 let computer = 0;
 
 const choices = document.querySelectorAll(".choice");
+const msg = document.querySelector(".msg");
 
 const getComputerChoice = () => {
-    const optionsChoice =["rock","paper","scissors"]
-    const randIndex = Math.floor(Math.random()*3);
+    const optionsChoice = ["rock", "paper", "scissors"];
+    const randIndex = Math.floor(Math.random() * 3);
     return optionsChoice[randIndex];
 };
 
-const draw =()=>{
-    console.log("It,s a draw!");
-}
-showWinner =(userWins)=>{
-    if (userWins){
+const draw = () => {
+    console.log("It's a draw!");
+    msg.innerText = "It's a draw!";
+};
+
+const showWinner = (userWins) => {
+    if (userWins) {
+        user++;
         console.log("You win!");
-    }
-    else{
+        msg.innerText = "You win!";
+    } else {
+        computer++;
         console.log("Computer wins!");
+        msg.innerText = "Computer wins!";
     }
 };
-const playGame =(userChoice)=>{
+
+const playGame = (userChoice) => {
     console.log("User chose:", userChoice);
-    // generate computer choice
+
     const computerChoice = getComputerChoice();
     console.log("Computer chose:", computerChoice);
-    //draw condition
-    if (userChoice === computerChoice){
+
+    if (userChoice === computerChoice) {
         draw();
-    }
-    // win conditions
-    else{
-        let userWins = true;
-        if (userChoice === "rock"){
-            userWins = computerChoice === "paper"? false: true;
+    } else {
+        let userWins;
+
+        if (userChoice === "rock") {
+            userWins = computerChoice !== "paper";
+        } else if (userChoice === "paper") {
+            userWins = computerChoice !== "scissors";
+        } else {
+            userWins = computerChoice !== "rock";
         }
-        else if (userChoice ==="paper"){
-            userWins =computerChoice === "scissors"? false: true;
-        }
-        else if (userChoice === "scissors"){
-            userWins = computerChoice === "rock"? false: true;
-        }
+
         showWinner(userWins);
     }
 };
 
-choices.forEach((choice)=>{
-    choice.addEventListener("click",()=>{
+choices.forEach((choice) => {
+    choice.addEventListener("click", () => {
         const userChoice = choice.getAttribute("id");
-        console.log(userChoice);
         playGame(userChoice);
     });
 });
